@@ -39,23 +39,23 @@ Este é um jogo clássico de **Connect 4**, implementado em Python usando a bibl
 
 ### 1. **Tela do Menu Principal**
 O menu inicial permite escolher entre jogar, configurar o jogo, comparar algoritmos ou sair.
-![Menu Principal](images/menu_principal.png)
+<img src="https://github.com/Micael-Resende/Connect4-IA/blob/master/images/menu-principal.png" alt="">
 
 ### 2. **Tela de Configurações**
 Configuração de dificuldade e escolha do algoritmo (Minimax ou Alfa-Beta).
-![Configurações](images/configuracoes.png)
+<img src="https://github.com/Micael-Resende/Connect4-IA/blob/master/images/configuracoes.png" alt="">
 
 ### 3. **Tela do Jogo**
 Tabuleiro dinâmico com animações para as jogadas e pontuações exibidas.
-![Jogo](images/tela_jogo.png)
+<img src="https://github.com/Micael-Resende/Connect4-IA/blob/master/images/game.png" alt="">
 
 ### 4. **Tela de Fim de Jogo**
 Mensagem de vitória ou derrota com opções para reiniciar ou voltar ao menu principal.
-![Fim de Jogo](images/tela_fim_de_jogo.png)
+<img src="https://github.com/Micael-Resende/Connect4-IA/blob/master/images/tela-final.png" alt="">
 
 ### 5. **Tela About**
 Informações sobre o jogo e desenvolvedor.
-![Tela About](images/about.png)
+<img src="https://github.com/Micael-Resende/Connect4-IA/blob/master/images/about.png" alt="">
 
 ---
 
