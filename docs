@@ -1,0 +1,99 @@
+# CORES
+--bs-gray:      #212529 
+--bs-gray-dark: #212529 
+--bs-gray-000: #101B27 
+--bs-gray-100: #1B2837
+--bs-gray-200: #213040
+--bs-gray-300: #273849 
+--bs-gray-400: #2C3E50 
+--bs-gray-500: #4C5B6A 
+--bs-gray-600: #6B7885 
+--bs-gray-700: #969FA8 
+--bs-gray-800: #C0C5CB 
+--bs-gray-900: #E6E8EA
+--bs-primary: #2c3e50
+    
+# POSSÍVEIS DEFINIÇÕES DE CORES
+Fundo Geral: Um tom escuro de azul, próximo de #101B27 ou #0D1A24.
+Buracos do Tabuleiro: Azul escuro opaco, semelhante a #213040.
+Peças: Cores vibrantes, como:
+Verde para uma peça (#1ABC9C).
+Vermelho para outra peça (#E74C3C).
+Bordas e Elementos Extras:
+Linhas e bordas em tons mais escuros, como #141D26.
+
+
+# FEITO: IMPLEMENTAR UM TEXTO INDICANDO SE O USUÁRIO GANHOU OU PERDEU A PARTIDA.
+# FEITO: NO FINAL DEVE TER UM CAMPO PERGUNTANDO SE O USUÁRIO DESEJA JOGAR NOVAMENTE.
+# FEITO: DESTACAR EM LINHA X COLUNA QUE FEZ O USUÁRIO VENCER O JOGO.
+# FEITO: BOLINHA HUMANO TAMBEM DEVE CAIR
+# FEITO: IMPLEMENTAR UMA FUNÇÃO PARA DEFINIR O TEMPO GASTO.
+# FEITO: REMOVER A BOLINHA NO TOPO
+# COLOCAR UMA OPÇÃO PARA JOGAR A IA VS IA COM ALGORTIMOS DIFERENTES.
+# DESTACAR A LINHA EM QUAL O USUÁRIO ESTA PASSANDO COM O MOUSE
+# FEITO: ADICIONAR UM BOTÃO PARA CARREGAR UM IMAGEM DO ARQUIVO IMAGENS.
+
+# DEFINIÇÃO DE HEURÍSTICA: 
+# Uma função heurística, também chamada simplesmente de heurística, 
+# é uma função que classifica alternativas em algoritmos de pesquisa em cada etapa de 
+# ramificação com base nas informações disponíveis para decidir qual ramificação seguir. 
+
+
+
+
+
+
+https://uxdesign.cc/selection-controls-ui-component-series-3badc0bdb546
+
+### SUGESTÃO DE MELHORIA ###
+
+# 1. Separação de Código em Módulos
+Atualmente, todo o código está em um único arquivo, o que torna a manutenção mais difícil. Você pode separar o código em diferentes módulos:
+Interface: Código relacionado à interface gráfica com Pygame (menus, desenho do tabuleiro).
+Algoritmos de IA: Algoritmo Minimax e poda Alfa-Beta.
+Lógica do Jogo: Funções relacionadas à lógica do Connect 4, como verificação de vitória, criação do tabuleiro, etc.
+Essa separação melhora a organização do projeto e facilita a manutenção e extensão futura.
+# 2. Interface Gráfica Mais Intuitiva
+Indicador Visual para Jogador Atual: Adicionar um indicador na tela para mostrar claramente de quem é o turno atual.
+Animações: As animações das peças caindo poderiam ser mais suaves ou incluir efeitos adicionais para melhorar a experiência visual.
+Som: O som de peça caindo é contínuo. Melhorar a lógica do som para que ele toque apenas quando necessário, talvez permitindo configurar diferentes sons para jogadores diferentes.
+Instruções: Adicionar uma seção de "Como jogar" no menu principal para novos usuários que não estão familiarizados com as regras do Connect 4.
+# 3. Otimização do Algoritmo
+Heurística mais Avançada: A heurística atual é simples e pode ser melhorada. Em vez de apenas contar sequências de 3 e 4 peças, você pode incluir:
+Centralização: Adicione um valor maior para peças no centro do tabuleiro, pois essas posições geralmente oferecem mais oportunidades de vitória.
+Formação de Armadilhas: Aumentar a pontuação para movimentos que criam múltiplas ameaças (ou seja, duas ou mais maneiras de vencer em jogadas subsequentes).
+Transposição de Tabuleiro: Implementar uma tabela de transposição que armazene resultados de estados do tabuleiro que já foram avaliados, a fim de reduzir a necessidade de reavaliação.
+# 4. Comparação Clara entre Minimax e Alfa-Beta
+Atualmente, o Alfa-Beta está implementado como parte do algoritmo Minimax. Para realmente comparar a eficiência entre Minimax puro e Minimax com poda Alfa-Beta, você pode ter duas implementações separadas e permitir que o usuário escolha qual delas usar durante o jogo.
+Medir o tempo de execução de ambos algoritmos de maneira mais formal e apresentar os resultados ao jogador de forma clara ao final do jogo.
+# 5. Aprimoramento na Configuração do Jogo
+Permitir que o usuário configure o jogo de maneira mais personalizada. Além da profundidade do PLY, você poderia permitir:
+Escolha de cores de peças.
+Alterar o tamanho do tabuleiro (ex.: 6x7 ou 9x10 para diferentes desafios).
+Escolher entre diferentes tipos de heurísticas para IA.
+# 6. Melhoria na Funcionalidade do Menu
+Persistência das Configurações: Atualmente, as configurações são redefinidas a cada execução. Você poderia implementar a persistência das configurações usando um arquivo de configuração (JSON, por exemplo) para salvar as preferências do jogador.
+Melhoria de Navegação: Facilitar a navegação no menu, como adicionar a possibilidade de usar o mouse para selecionar opções e realçar a opção que está sendo selecionada.
+# 7. Paralelismo e Performance
+Jogos Paralelos: Permitir a execução de várias simulações paralelas para comparar os tempos de Minimax e Alfa-Beta em diferentes profundidades.
+Threading: Para melhorar a performance, especialmente ao executar Minimax em profundidade alta, você pode usar threads para permitir que a interface do usuário continue responsiva enquanto a IA calcula a próxima jogada.
+# 8. Melhorias no Código da Interface Gráfica
+Você está usando muitas funções para desenhar a interface repetidamente. Uma boa prática seria usar uma função que só redesenhe as partes alteradas do tabuleiro, otimizando a performance gráfica e evitando a recriação de elementos que não mudaram.
+Em vez de usar valores "mágicos" (constantes como 50 ou 150 que são espalhados pelo código), considere defini-los como constantes no início do arquivo, para facilitar futuras modificações.
+# 9. Testes Automatizados
+Desenvolver testes unitários e de integração para a lógica do jogo (verificação de vitória, jogadas válidas, etc.) usando a biblioteca unittest do Python.
+Isso ajudará a garantir a estabilidade do jogo e facilitará futuras mudanças no código.
+# 10. IA Competitiva Mais Forte
+Implementar diferentes níveis de IA:
+Para o modo fácil, você pode fazer a IA jogar movimentos aleatórios.
+Para níveis intermediários, use Minimax com uma profundidade baixa.
+Para o modo difícil, use poda Alfa-Beta com uma profundidade maior e uma heurística mais avançada.
+Monte Carlo Tree Search (MCTS): Considerar a implementação de MCTS como uma alternativa ao Minimax, especialmente se quiser uma IA com capacidade de avaliar muitos estados aleatórios rapidamente.
+# 11. Exibição dos Resultados
+Apresentar um relatório ou gráfico ao final do jogo que mostre:
+Comparação do tempo de execução entre as diferentes profundidades de Minimax e Alfa-Beta.
+Número de jogadas consideradas, número de nós podados, etc.
+Isso ajuda a visualizar claramente os ganhos de eficiência do Alfa-Beta.
+# 12. Documentação e Comentários
+Melhorar a documentação do código, adicionando comentários explicativos nos trechos de lógica complexa.
+Criar um arquivo README.md para o projeto, explicando como rodar o jogo, os pré-requisitos, e uma visão geral do funcionamento do código.
